@@ -1,0 +1,93 @@
+
+# 1. Create project folder
+cd Desktop
+mkdir GitPractice
+cd GitPractice
+
+# 2. Configure Git
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+
+# 3. Initialize repository
+git init
+
+# 4. Create HTML file
+@'
+<html>
+<head>
+    <title>Git Practice</title>
+</head>
+<body>
+    <h1>Hello GitHub!</h1>
+</body>
+</html>
+'@ | Set-Content index.html
+
+# 5. Check status and add files
+git status
+git add .
+
+# 6. Commit changes
+git commit -m "Initial commit"
+
+# 7. View commit history
+git log --oneline
+
+# 8. Create a feature branch
+git branch feature
+
+# 9. View branches
+git branch
+
+# 10. Switch to feature branch
+git checkout feature
+
+# 11. Modify HTML file
+@'
+<html>
+<head>
+    <title>Git Practice</title>
+</head>
+<body>
+    <h1>Hello from Feature Branch!</h1>
+</body>
+</html>
+'@ | Set-Content index.html
+
+# 12. Add and commit feature changes
+git add .
+git commit -m "Updated feature branch"
+
+# 13. Switch back to main
+git checkout main
+
+# 14. Merge feature branch
+git merge feature
+
+# 15. Delete feature branch
+git branch -d feature
+
+# 16. Connect to GitHub
+git remote add origin https://github.com/YOUR_USERNAME/GitPractice.git
+
+# 17. Set main as default branch
+git branch -M main
+
+# 18. Push code to GitHub
+git push -u origin main
+
+# 19. View remote repository
+git remote -v
+
+# 20. Pull latest changes
+git pull origin main
+
+# 21. View changes
+git diff
+
+# 22. View final commit history
+git log --oneline
+
+# 23. Clone repository (run from Desktop)
+cd ..
+git clone https://github.com/YOUR_USERNAME/GitPractice.git
