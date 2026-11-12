@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eee;
+        }
+        form {
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0 12px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Event Registration</h2>
+        Name:
+        <input type="text">
+        Email:
+        <input type="email">
+        Phone:
+        <input type="tel">
+        College:
+        <input type="text">
+        Event:
+        <select>
+            <option>Web Development</option>
+            <option>AI Workshop</option>
+            <option>Hackathon</option>
+        </select>
+        Gender:
+        <br>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
