@@ -1,0 +1,431 @@
+Experiment 5: Continuous Integration and Continuous Development Using Jenkins (Build Pipeline)
+
+Experiment 5 of 9
+
+This is one of the most important experiments in your DevOps lab.
+
+Don’t worry. It sounds complicated, but the concept is actually very simple. It builds directly on Experiment 4 (Jenkins).
+
+1. What is CI/CD?
+
+First, understand two important terms.
+
+CI – Continuous Integration
+
+Continuous Integration means frequently combining code changes from different developers into a shared repository and automatically building and testing the code.
+
+CD – Continuous Delivery / Continuous Deployment
+
+CD refers to automating the process of preparing or deploying software after it has been integrated and tested.
+
+In simple words:
+
+* CI = Automatically integrate and test code.
+* CD = Automatically prepare or deploy the application.
+
+Real-world example
+
+Imagine 5 developers are working on the same website.
+
+* Developer A changes the login page.
+* Developer B changes the registration page.
+* Developer C changes the homepage.
+* All developers upload their changes to GitHub.
+* Jenkins automatically detects changes.
+* Jenkins downloads the latest code.
+* Jenkins builds and tests the application.
+
+This is the basic idea behind CI/CD.
+
+2. What is a Build Pipeline?
+
+A build pipeline is a sequence of automated tasks that execute one after another.
+
+For example:
+
+Source Code
+
+Developer writes code.
+
+GitHub
+
+Code is uploaded.
+
+Jenkins
+
+Detects changes and starts the build.
+
+Build and Test
+
+Checks whether the code works.
+
+Success
+
+Build completes successfully.
+
+3. What is the objective of this experiment?
+
+The objective is to integrate Jenkins with GitHub and create an automated build pipeline.
+
+Your lab record uses this GitHub repository:
+
+Integration project on GitHub⁠￼.
+
+The experiment has two main parts:
+
+* Integrate Jenkins with GitHub.
+* Create a build pipeline using three Jenkins jobs.
+
+4. Part A – Integrating Jenkins with GitHub
+
+Let’s understand the practical steps.
+
+Step 1: Create a GitHub repository
+
+* Open GitHub.
+* Create a new repository.
+* Add a file such as index.html.
+* Upload the file.
+
+Step 2: Open Jenkins
+
+Open your Jenkins dashboard.
+
+Click:
+
+New Item → Enter project name → Freestyle Project → OK
+
+Step 3: Configure GitHub Project
+
+In the Jenkins configuration page:
+
+Go to General → GitHub project.
+
+Enter your GitHub project URL.
+
+For example:
+
+https://github.com/username/integration/
+
+This tells Jenkins which GitHub project is associated with the job.
+
+Step 4: Configure Source Code Management
+
+Find the Source Code Management section.
+
+Select Git.
+
+Under Repository URL, enter:
+
+https://github.com/username/integration.git
+
+This tells Jenkins where to download the source code from.
+
+Step 5: Select the branch
+
+Under Branches to Build, enter:
+
+*/main
+
+This tells Jenkins to use the main branch.
+
+Step 6: Select Repository Browser
+
+Select:
+
+githubweb
+
+This identifies GitHub as the repository browser.
+
+Step 7: Configure Build Triggers
+
+Find the Build Triggers section.
+
+Select:
+
+GitHub hook trigger for GITScm polling
+
+What does this do?
+
+It allows Jenkins to receive GitHub webhook notifications when code changes occur.
+
+A webhook is an automatic notification sent from one application to another when an event happens.
+
+For example:
+
+When a developer pushes new code to GitHub, GitHub sends a notification to Jenkins.
+
+Jenkins can then start a build.
+
+Step 8: Save and Build
+
+Click Save.
+
+Then click Build Now.
+
+Open:
+
+Build History → Build Number → Console Output
+
+If everything is configured correctly, you should see:
+
+Finished: SUCCESS
+
+Part A completed
+
+5. Part B – Creating a Build Pipeline
+
+Now comes the second part.
+
+Your lab record asks you to create three Jenkins jobs:
+
+* Job 1
+* Job 2
+* Job 3
+
+Step 1: Create three jobs
+
+Go to Jenkins Dashboard.
+
+Click:
+
+New Item → Enter job name → Freestyle Project → OK
+
+Create the following three jobs:
+
+Job1
+Job2
+Job3
+
+You can create them one by one.
+
+Step 2: Install Build Pipeline Plugin
+
+The Build Pipeline plugin is used to visualize the execution of Jenkins jobs in a pipeline.
+
+Follow these steps:
+
+* Open Manage Jenkins.
+* Select Plugins.
+* Open Available Plugins.
+* Search for Build Pipeline.
+* Install the plugin.
+
+Step 3: Create a Build Pipeline View
+
+After installing the plugin:
+
+* Go to Jenkins Dashboard.
+* Click the + icon near the views.
+* Enter a name, for example My Pipeline.
+* Select Build Pipeline View.
+* Click Create.
+
+Step 4: Select Initial Job
+
+You will see an option called:
+
+Select Initial Job
+
+Choose:
+
+Job1
+
+This means Job1 is the starting job of your pipeline.
+
+Click Apply → OK.
+
+Step 5: Run the Pipeline
+
+Click Run.
+
+Jenkins will display the pipeline view.
+
+Your lab record demonstrates a green successful build in the pipeline.
+
+Important clarification: Creating three jobs and selecting Job1 as the initial job creates the pipeline view. To execute Job2 and Job3 automatically in sequence, you must also configure downstream build triggers between the jobs. The record does not describe those additional configurations.
+
+6. Important terminology
+
+Term	Simple meaning
+CI	Continuous Integration
+CD	Continuous Delivery / Deployment
+Pipeline	Sequence of automated tasks
+Webhook	Automatic notification
+Build Trigger	Starts a Jenkins build
+GitHub Integration	Connecting Jenkins with GitHub
+Plugin	Adds extra functionality
+Job	Configured task in Jenkins
+Build	Execution of a job
+Branch	Separate line of development
+
+7. Important viva questions
+
+Prepare these carefully. This experiment has many theory-based questions.
+
+Q1. What is CI?
+
+CI stands for Continuous Integration. It is the practice of frequently integrating code changes into a shared repository and automatically building and testing them.
+
+Q2. What is CD?
+
+CD stands for Continuous Delivery or Continuous Deployment. It automates the process of preparing or deploying software after integration and testing.
+
+Q3. What is a CI/CD pipeline?
+
+It is an automated sequence of steps used to build, test and deliver software.
+
+Q4. What is Jenkins?
+
+Jenkins is an open-source automation server used to automate software development tasks.
+
+Q5. Why do we integrate Jenkins with GitHub?
+
+To automatically retrieve source code from GitHub and build or test it using Jenkins.
+
+Q6. What is a webhook?
+
+A webhook is an automatic notification sent from one application to another when a particular event occurs.
+
+Q7. What is GitHub integration?
+
+It is connecting Jenkins with GitHub so Jenkins can access repositories and respond to code changes.
+
+Q8. What is a build trigger?
+
+A build trigger is an event or condition that starts a Jenkins build.
+
+Q9. What is a pipeline?
+
+A pipeline is a sequence of automated tasks involved in building, testing and delivering software.
+
+Q10. What is a Jenkins plugin?
+
+A plugin is an extension that adds additional functionality to Jenkins.
+
+Q11. What is the Build Pipeline plugin?
+
+It is a Jenkins plugin used to visualize the execution flow of jobs.
+
+Q12. What is the purpose of Job1, Job2 and Job3?
+
+They represent separate Jenkins jobs that can be organized into a build pipeline.
+
+Q13. What happens when a developer pushes code to GitHub?
+
+If webhook integration is configured correctly, GitHub sends a notification to Jenkins, which can trigger a build.
+
+Q14. What is the difference between CI and CD?
+
+CI focuses on integrating and testing code changes. CD focuses on preparing or deploying the tested application.
+
+Q15. What is the purpose of */main?
+
+It specifies that Jenkins should build the main branch.
+
+Q16. What is source code management?
+
+It is the process of tracking and managing changes to source code.
+
+Q17. What is automated testing?
+
+Automated testing uses software tools to execute test cases without manually performing every test.
+
+Q18. What is the advantage of CI/CD?
+
+It reduces manual work, detects errors early, speeds up software delivery and improves development efficiency.
+
+Q19. Can Jenkins work without GitHub?
+
+Yes. Jenkins can execute local programs and perform automation tasks without GitHub.
+
+Q20. What is the difference between a job and a pipeline?
+
+A job performs a configured task. A pipeline organizes multiple tasks or jobs into an execution workflow.
+
+8. Mini viva test
+
+Mini viva test
+
+0/5 answered
+
+1. What does CI stand for?
+
+Continuous Installation
+
+Continuous Integration
+
+Code Integration
+
+Computer Interface
+
+2. What is a webhook?
+
+Programming language
+
+Automatic notification
+
+Database
+
+Jenkins plugin
+
+3. Which plugin is used to visualize the Jenkins pipeline in this experiment?
+
+Git plugin
+
+Docker plugin
+
+Build Pipeline plugin
+
+Python plugin
+
+4. Which branch is selected in the lab record?
+
+master
+
+development
+
+main
+
+testing
+
+5. What happens when code is pushed to GitHub with webhook integration configured?
+
+The repository is deleted
+
+Jenkins can be notified and trigger a build
+
+Java is installed
+
+A new branch is created
+
+Submit answers
+
+9. Last-minute revision
+
+Memorize these 10 points:
+
+* CI = Continuous Integration.
+* CD = Continuous Delivery / Deployment.
+* Jenkins = Automation server.
+* Pipeline = Sequence of automated tasks.
+* Webhook = Automatic notification.
+* GitHub = Stores source code online.
+* Build Trigger = Starts a build.
+* Plugin = Adds functionality.
+* Build Pipeline plugin = Visualizes job execution.
+* */main = Selects the main branch.
+
+Practical sequence to remember:
+
+Create GitHub Repository → Create Jenkins Job → Configure GitHub Project → Configure Git → Select main Branch → Enable GitHub Hook → Save → Build Now
+
+Then:
+
+Create Job1, Job2, Job3 → Install Build Pipeline Plugin → Create Pipeline View → Select Job1 → Run
+
+Based on Experiment 5, pages 8–11 of your DevOps Lab record.
+
+Say “next” for Experiment 6: Docker Commands for Content Management.
+
+This is particularly important because Docker terminology and commands are very common external viva questions.
